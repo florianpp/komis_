@@ -4,13 +4,9 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-    <servlet-name>hello</servlet-name>
-    <servlet-class>pl.altkom.web.HelloServlet</servlet-class>
-  </servlet>
 
-  <servlet-mapping>
-    <servlet-name>hello</servlet-name>
-    <url-pattern>/hello</url-pattern>
-  </servlet-mapping>
+  <context-param>
+    <param-name>adres_email_tworcy</param-name>
+    <param-value>pawel.bogdan1@gmail.com</param-value>
+  </context-param>
 </web-app>
