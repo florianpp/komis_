@@ -23,14 +23,47 @@ public class ReadClientDataServlet extends HttpServlet {
             DataSource ds = (DataSource) context.lookup(getServletContext().getInitParameter("dataSource"));
             ClientDataDAO dao = new ClientDataDAOImpl();
             List clients = dao.readClientsData(ds);
-            pw.println("<ol>");
+            pw.println("<html><head><title>Lista klientow</title></head><body>");
+            pw.println("<table>");
+            pw.println("<tr>");
+            pw.print("<th>");
+            pw.print("Imie");
+            pw.println("</th>");
+            pw.print("<th>");
+            pw.print("Nazwisko");
+            pw.println("</th>");
+            pw.print("<th>");
+            pw.print("Wiek");
+            pw.println("</th>");
+            pw.print("<th>");
+            pw.print("Region");
+            pw.println("</th>");
+            pw.print("<th>");
+            pw.print("Plec");
+            pw.println("</th>");
+            pw.println("</tr>");
             for (Object o : clients) {
                 Client c = (Client)o;
-                pw.print("<li>");
-                pw.print(c.getFirstName() + " " + c.getLastName());
-                pw.println("</li>");
+                pw.println("<tr>");
+                pw.print("<td>");
+                pw.print(c.getFirstName());
+                pw.println("</td>");
+                pw.print("<td>");
+                pw.print(c.getLastName());
+                pw.println("</td>");
+                pw.print("<td>");
+                pw.print(c.getAge());
+                pw.println("</td>");
+                pw.print("<td>");
+                pw.print(c.getRegion());
+                pw.println("</td>");
+                pw.print("<td>");
+                pw.print(c.getSex());
+                pw.println("</td>");
+                pw.println("</tr>");
             }
-            pw.println("</ol>");
+            pw.println("</table>");
+            pw.println("</body></html>");
         } catch (Exception e) {
             e.printStackTrace();
         }
