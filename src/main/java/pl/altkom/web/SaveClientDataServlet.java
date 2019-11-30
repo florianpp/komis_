@@ -1,10 +1,14 @@
 package pl.altkom.web;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class SaveClientDataServlet extends HttpServlet {
     @Override
@@ -20,10 +24,20 @@ public class SaveClientDataServlet extends HttpServlet {
 
         ClientDataDAO dao = new ClientDataDAOImpl();
         try {
-            dao.saveClientData(client, getServletContext().getInitParameter("dataSource"));
+            InitialContext initCtx = new InitialContext();
+            Context context = (Context) initCtx.lookup("java:comp/env");
+            DataSource ds = (DataSource) context.lookup(getServletContext().getInitParameter("dataSource"));
+            dao.saveClientData(client, ds);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        PrintWriter out = resp.getWriter();
+        out.println("<html><head><title>SUKCES</title></head>");
+        out.println("<body>");
+        out.println("<h1>Udało Ci się dodać użytkownika!!!</h1>");
+        out.println("<a href=\"userForm.html\">Dodaj kolejnego użytkownika</a>");
+        out.println("</body></html>");
 
     }
 }
