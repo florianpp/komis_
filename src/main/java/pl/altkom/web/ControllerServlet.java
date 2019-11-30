@@ -24,7 +24,8 @@ public class ControllerServlet extends HttpServlet {
             pw.print("world");
         }
         pw.println("!</H3>");
-        pw.println("<a href=\"makeForm.html\">Link</a><br><br>");
+        pw.println("<a href=\"makeForm.html\">Marka</a><br><br>");
+        pw.println("<a href=\"userForm.html\">Utwórz użytkownika</a><br><br>");
         String email = this.getServletContext().getInitParameter("adres_email_tworcy");
         pw.println("Adres e-mail twórcy strony: " + email);
         pw.println("</BODY></HTML>");

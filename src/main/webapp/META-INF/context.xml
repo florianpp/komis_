@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context debug="true"
+         reloadable="true"
+         crossContext="true"
+         antiJARLocking="true">
+    <Resource name="jdbc:komis"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxActive="100"
+              maxIdle="30"
+              maxWait="10000"
+              driverClassName="org.sqlite.JDBC"
+              url="jdbc:sqlite:komis.sqlite" />
+
+    <Resource name="jdbc:big_data"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxActive="100"
+              maxIdle="30"
+              maxWait="10000"
+              driverClassName="com.mysql.Driver"
+              url="jdbc:sqlite:http://localhost:12345/big_data"
+              username="sa"
+              password="password"/>
+</Context>
