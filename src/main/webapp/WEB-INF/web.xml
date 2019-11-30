@@ -45,6 +45,16 @@
     <url-pattern>/add_user</url-pattern>
   </servlet-mapping>
 
+    <servlet>
+        <servlet-name>read_users</servlet-name>
+        <servlet-class>pl.altkom.web.ReadClientDataServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>read_users</servlet-name>
+        <url-pattern>/read_users</url-pattern>
+    </servlet-mapping>
+
   <context-param>
     <param-name>adres_email_tworcy</param-name>
     <param-value>pawel.bogdan1@gmail.com</param-value>
