@@ -14,12 +14,6 @@ public class HelloServlet extends HttpServlet {
                         HttpServletResponse response)
             throws IOException {
         PrintWriter pw = response.getWriter();
-        pw.println("<HTML><HEAD>");
-        pw.println("<meta charset=\"UTF-8\">");
-        pw.println("<TITLE>Hello</TITLE>");
-        pw.println("</HEAD><BODY>");
         pw.println("<H3>Hello Paweł!</H3>");
-        pw.println("</BODY></HTML>");
-        response.sendError(404);
     }
 }
