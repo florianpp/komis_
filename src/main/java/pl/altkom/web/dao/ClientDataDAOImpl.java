@@ -22,7 +22,7 @@ public class ClientDataDAOImpl implements ClientDataDAO {
 	        con = dataSource.getConnection();
 	        
 	        PreparedStatement pstmt = con.prepareStatement(
-	        "INSERT INTO klient(id,imie,nazwisko,region,wiek,mezczyzna) values (?,?,?,?,?,?)");
+	        "INSERT INTO klient(id,imie,nazwisko,region,wiek,mezczyzna,bla) values (?,?,?,?,?,?)");
 	
 	        int m = (cl.getSex().equals("MALE") ? 1 : 0);
 	        pstmt.setInt(1, generateId());

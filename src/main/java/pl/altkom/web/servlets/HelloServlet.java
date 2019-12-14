@@ -20,5 +20,6 @@ public class HelloServlet extends HttpServlet {
         pw.println("</HEAD><BODY>");
         pw.println("<H3>Hello Paweł!</H3>");
         pw.println("</BODY></HTML>");
+        response.sendError(404);
     }
 }

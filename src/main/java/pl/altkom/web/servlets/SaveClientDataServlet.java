@@ -37,6 +37,7 @@ public class SaveClientDataServlet extends HttpServlet {
             req.setAttribute("bla bla", client);
         } catch (Exception e) {
             e.printStackTrace();
+            throw new ServletException("Błąd", e);
         }
 
         PrintWriter out = resp.getWriter();
