@@ -1,4 +1,4 @@
-package pl.altkom.web;
+package pl.altkom.web.servlets;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet(urlPatterns = "/process")
 public class RedirectServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
