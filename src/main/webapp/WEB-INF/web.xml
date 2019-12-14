@@ -71,4 +71,13 @@
     <param-name>dataSource</param-name>
     <param-value>jdbc:komis</param-value>
   </context-param>
+
+  <listener>
+    <listener-class>pl.altkom.web.SessionCounter</listener-class>
+  </listener>
+
+  <listener>
+    <listener-class>pl.altkom.web.SavedClientListener</listener-class>
+  </listener>
+
 </web-app>

@@ -26,7 +26,8 @@ public class SaveClientDataServlet extends HttpServlet {
         try {
             InitialContext initCtx = new InitialContext();
             Context context = (Context) initCtx.lookup("java:comp/env");
-            DataSource ds = (DataSource) context.lookup(getServletContext().getInitParameter("dataSource"));
+            DataSource ds = (DataSource) context.lookup(getServletContext()
+                    .getInitParameter("dataSource"));
             dao.saveClientData(client, ds);
             req.setAttribute("bla bla", client);
         } catch (Exception e) {
