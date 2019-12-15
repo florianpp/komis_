@@ -16,8 +16,8 @@
 <% Object oClients = request.getAttribute("clients"); %>
 <% List clients = (List) oClients; %>
 
-<form action="">
-    <select>
+<form action="delete_client">
+    <select name="client">
         <% for (Object o : clients) { %>
             <% Client c = (Client) o; %>
             <option><%= c.getFirstName() %> <%= c.getLastName() %></option>

@@ -81,4 +81,18 @@ public class ClientDataDAOImpl implements ClientDataDAO {
 		return clients;
 	}
 
+	@Override
+	public void removeClient(String firstName, String lastName, DataSource dataSource) throws Exception {
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			connection.createStatement().executeUpdate("DELETE FROM klient WHERE " +
+					"imie = '" + firstName + "' AND nazwisko = '" + lastName + "';");
+		} finally {
+			if (connection != null) {
+				connection.close();
+			}
+		}
+	}
+
 }
