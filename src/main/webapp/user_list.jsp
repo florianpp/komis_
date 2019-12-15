@@ -12,7 +12,7 @@
     <title>Title</title>
 </head>
 <body>
-
+<%@include file="header.jsp"%>
 <table>
     <tr>
         <th>Id</th>
