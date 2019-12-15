@@ -28,6 +28,15 @@
     </tr>
 </table>
 
+<form action="add_car_info">
+    <input type="hidden" name="make" value='<%= request.getParameter("make")%>'>
+    <input type="hidden" name="type" value='<%= request.getParameter("type")%>'>
+    <input type="hidden" name="year" value='<%= request.getParameter("production_year")%>'>
+    <input type="hidden" name="distance" value='<%= request.getParameter("millage")%>'>
+    <input type="hidden" name="capacity" value='<%= request.getParameter("capacity")%>'>
+    <input type="submit" value="Zapisz samochód">
+</form>
+
 <%@include file="footer.html"%>
 </body>
 </html>
