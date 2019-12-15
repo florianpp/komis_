@@ -1,6 +1,7 @@
 package pl.altkom.web;
 
 public class Client {
+    private int id;
     private String firstName;
     private String lastName;
     private int age;
@@ -48,5 +49,13 @@ public class Client {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

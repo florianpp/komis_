@@ -13,16 +13,13 @@ import javax.sql.DataSource;
 public class ClientDataDAOImpl implements ClientDataDAO {
 
 	public void saveClientData(Client cl, DataSource dataSource) throws Exception {
-		
-
-
-        Connection con = null;
+		Connection con = null;
         
         try {
 	        con = dataSource.getConnection();
 	        
 	        PreparedStatement pstmt = con.prepareStatement(
-	        "INSERT INTO klient(id,imie,nazwisko,region,wiek,mezczyzna,bla) values (?,?,?,?,?,?)");
+	        "INSERT INTO klient(id,imie,nazwisko,region,wiek,mezczyzna) values (?,?,?,?,?,?)");
 	
 	        int m = (cl.getSex().equals("MALE") ? 1 : 0);
 	        pstmt.setInt(1, generateId());
@@ -42,7 +39,8 @@ public class ClientDataDAOImpl implements ClientDataDAO {
 	}
 	
 	private int generateId() {
-		return ((int) (System.currentTimeMillis() % 100000)) + 100000;
+		return ((int)
+				(System.currentTimeMillis() % 100000)) + 100000;
 	}
 
 	public List readClientsData(DataSource dataSource) throws Exception {
@@ -54,16 +52,17 @@ public class ClientDataDAOImpl implements ClientDataDAO {
 			conn = dataSource.getConnection();
 
 			PreparedStatement pstmt = conn.prepareStatement(
-					"SELECT imie, nazwisko, region, wiek, mezczyzna FROM klient");
+					"SELECT id, imie, nazwisko, region, wiek, mezczyzna FROM klient");
 
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Client cl = new Client();
-				cl.setFirstName(rs.getString(1));
-				cl.setLastName(rs.getString(2));
-				cl.setRegion(rs.getString(3));
-				cl.setAge(rs.getInt(4));
-				if (rs.getInt(5) == 1) {
+				cl.setId(rs.getInt(1));
+				cl.setFirstName(rs.getString(2));
+				cl.setLastName(rs.getString(3));
+				cl.setRegion(rs.getString(4));
+				cl.setAge(rs.getInt(5));
+				if (rs.getInt(6) == 1) {
 					cl.setSex("MALE");
 				} else {
 					cl.setSex("FEMALE");
@@ -88,6 +87,20 @@ public class ClientDataDAOImpl implements ClientDataDAO {
 			connection = dataSource.getConnection();
 			connection.createStatement().executeUpdate("DELETE FROM klient WHERE " +
 					"imie = '" + firstName + "' AND nazwisko = '" + lastName + "';");
+		} finally {
+			if (connection != null) {
+				connection.close();
+			}
+		}
+	}
+
+	@Override
+	public void removeClient(int id, DataSource dataSource) throws Exception {
+		Connection connection = null;
+		try {
+			connection = dataSource.getConnection();
+			connection.createStatement().executeUpdate("DELETE FROM klient WHERE " +
+					"id = " + id + ";");
 		} finally {
 			if (connection != null) {
 				connection.close();
