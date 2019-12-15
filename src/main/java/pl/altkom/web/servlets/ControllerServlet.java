@@ -30,8 +30,8 @@ public class ControllerServlet extends HttpServlet {
             pw.print("world");
         }
         pw.println("!</H3>");
-        pw.println("<a href=\"makeForm.html\">Marka</a><br><br>");
-        pw.println("<a href=\"userForm.html\">Utwórz użytkownika</a><br><br>");
+        pw.println("<a href=\"makeForm.jsp\">Marka</a><br><br>");
+        pw.println("<a href=\"userForm.jsp\">Utwórz użytkownika</a><br><br>");
         pw.print("<h5>Liczba aktywnych użytkowników: " + SessionCounter.getCounter());
         pw.println("</h5><br><br>");
         Object counter = getServletContext().getAttribute("savedClientsCounter");

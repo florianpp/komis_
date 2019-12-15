@@ -44,7 +44,7 @@ public class SaveClientDataServlet extends HttpServlet {
         out.println("<html><head><title>SUKCES</title></head>");
         out.println("<body>");
         out.println("<h1>Udało Ci się dodać użytkownika!!!</h1>");
-        out.println("<a href=\"userForm.html\">Dodaj kolejnego użytkownika</a>");
+        out.println("<a href=\"userForm.jsp\">Dodaj kolejnego użytkownika</a>");
         out.println("</body></html>");
 
     }
