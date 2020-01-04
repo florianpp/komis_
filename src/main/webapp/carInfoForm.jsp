@@ -23,13 +23,13 @@
     Typ
     <input type="text" name="type"> <br>
     Rok produkcji
-    <select name="production_year">
+    <select name="year">
         <%for (int i = 2019; i >= 1980; i--) { %>
             <option><%=i%></option>
         <% } %>
     </select><br>
     Przebieg
-    <select name="milage">
+    <select name="distance">
         <%for (int i = 0; i <= 1000000; i+= 100000) { %>
         <option><%=i%></option>
         <% } %>

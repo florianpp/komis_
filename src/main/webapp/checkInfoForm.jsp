@@ -5,35 +5,39 @@
 </head>
 <body>
 
+<jsp:useBean id="autko" class="pl.altkom.web.CarBean" scope="session"/>
+<%--<jsp:setProperty name="autko" property="make"/>--%>
+<%--<jsp:setProperty name="autko" property="type"/>--%>
+<%--<jsp:setProperty name="autko" property="year"/>--%>
+<%--<jsp:setProperty name="autko" property="distance"/>--%>
+<%--<jsp:setProperty name="autko" property="capacity"/>--%>
+
+<jsp:setProperty name="autko" property="*" />
+
 <table>
     <tr>
         <td>Marka</td>
-        <td><%= request.getParameter("make")%></td>
+        <td><jsp:getProperty name="autko" property="make"/></td>
     </tr>
     <tr>
         <td>Typ</td>
-        <td><%= request.getParameter("type")%></td>
+        <td><jsp:getProperty name="autko" property="type"/></td>
     </tr>
     <tr>
         <td>Rok produkcji</td>
-        <td><%= request.getParameter("production_year")%></td>
+        <td><jsp:getProperty name="autko" property="year"/></td>
     </tr>
     <tr>
         <td>Przebieg</td>
-        <td><%= request.getParameter("milage")%></td>
+        <td><jsp:getProperty name="autko" property="distance"/></td>
     </tr>
     <tr>
         <td>Pojemność</td>
-        <td><%= request.getParameter("capacity")%></td>
+        <td><jsp:getProperty name="autko" property="capacity"/></td>
     </tr>
 </table>
 
 <form action="add_car_info">
-    <input type="hidden" name="make" value='<%= request.getParameter("make")%>'>
-    <input type="hidden" name="type" value='<%= request.getParameter("type")%>'>
-    <input type="hidden" name="year" value='<%= request.getParameter("production_year")%>'>
-    <input type="hidden" name="distance" value='<%= request.getParameter("millage")%>'>
-    <input type="hidden" name="capacity" value='<%= request.getParameter("capacity")%>'>
     <input type="submit" value="Zapisz samochód">
 </form>
 

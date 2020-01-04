@@ -22,22 +22,7 @@ public class SaveCarInfoServlet extends HttpServlet {
 
         // logika zapisywania auta
 
-        CarBean car = new CarBean();
-        String make = req.getParameter("make");
-        car.setMake(make);
-
-        String type = req.getParameter("type");
-        car.setType(type);
-
-        int year = Integer.parseInt(req.getParameter("year"));
-        car.setYear(year);
-
-        String distance = req.getParameter("distance");
-        car.setDistance(distance);
-
-        String capacity = req.getParameter("capacity");
-        car.setCapacity(capacity);
-
+        CarBean car = (CarBean) req.getSession().getAttribute("autko");
         CarInfoDAO dao = new CarInfoDAOImpl();
         dao.saveCarInfo(car, dataSource);
 
